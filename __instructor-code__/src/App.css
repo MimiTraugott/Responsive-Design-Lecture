@@ -3,8 +3,8 @@
 }
 
 #header-container {
-  height: 100px;
-  background-color: paleturquoise;
+  height: 75px;
+  background-color: purple;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,10 +14,14 @@
 
 #logo {
   height: 50px;
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 #nav-links {
-  color:white;
+  color: white;
   width: 30vw;
   display: flex;
   justify-content: space-evenly;
@@ -27,10 +31,11 @@
   display: none;
   color: white;
 }
+
 #side-menu {
   height: calc(100vh - 75px);
   width: 150px;
-  background-color: lightslategray;
+  background-color: chartreuse;
   position: fixed;
   top: 75px;
   right: 0px;
@@ -41,39 +46,42 @@
   animation-duration: 100ms;
   animation-timing-function: linear;
 }
-#transition-box{
+
+#transition-box {
   height: 75px;
   width: 75px;
-  background-color: peachpuff;
-  transition: 1s;
+  background-color: red;
+  transition: 5s;
 }
 
 #transition-box:hover {
   transform: scale(2)
 }
+
 #rotate-box {
   height: 75px;
   width: 75px;
-  background-color: palevioletred;
+  background-color: rebeccapurple;
   animation-name: spin;
-  animation-duration: .5s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-/* @keyframes spin { */
-  /* from {
+
+/* @keyframes spin {
+  from {
     transform: rotate(0deg)
   }
   to {
     transform: rotate(360deg)
-  } */
-  /* 0% {
+  }
+  0% {
     transform: rotate(0deg)
   }
   50% {
     transform: rotate(180deg);
     height: 150px;
-    width: 150px
+    width: 150px;
   }
   100% {
     transform: rotate(360deg);
@@ -81,24 +89,28 @@
     width: 75px;
   }
 } */
+
 @keyframes menu {
   from {
-    transform: scale(0, 1)
+    /* transform: scale(0, 1) */
+    width: 0px;
   }
   to {
-    transform: scale(1)
+    /* transform: scale(1) */
+    width: 150px;
   }
-
 }
 
 @media (max-width: 750px){
   #nav-links {
     display: none;
   }
+
   #hamburger {
     display: initial;
   }
 }
+
 @media (max-width: 500px){
   #header-container {
     height: 60px;

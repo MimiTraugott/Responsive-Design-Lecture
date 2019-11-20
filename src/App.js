@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBars, faEllipsisV} from '@fortawesome/free-solid-svg-icons';
+library.add(faBars)
 
-function App() {
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      toggleMenu: false
+    }
+  }
+
+  handleToggle = () => {
+    this.setState({
+      toggleMenu: !this.state.toggleMenu
+    })
+
+  }
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      {!this.state.toggleMenu 
+      ?(<header id='header-container'>
+        <img src='https://media.giphy.com/media/LMcQtGUlP4Zb0G2ByL/giphy.gif' alt="handsome-spongebob" id="logo"/>
+        <nav id='nav-links'>
+          <a>Home</a>
+          <a>About</a>
+          <a>Contact</a>
+        </nav>
+      <FontAwesomeIcon icon='bars' id='hamburger' onClick=
+      {this.handleToggle}/>
+      </header>)
+      : (
+      <>
+      <header id='header-container'>
+        <img src='https://media.giphy.com/media/LMcQtGUlP4Zb0G2ByL/giphy.gif' alt="handsome-spongebob" id="logo"/>
+        <nav id='nav-links'>
+          <a>Home</a>
+          <a>About</a>
+          <a>Contact</a>
+        </nav>
+      <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle}
+      />
       </header>
+      <nav id='side-menu'>
+        <a>Home</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      </>)}
+      <div id ="rotate-box"></div>
+      <div id='transition-box'></div>
     </div>
   );
+}
 }
 
 export default App;
